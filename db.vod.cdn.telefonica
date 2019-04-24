@@ -1,0 +1,14 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	vod.cdn.telefonica.com. root.vod.cdn.telefonica.com. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	ns
+ns	IN	A	127.0.0.188
+*	IN	A	192.168.17.148

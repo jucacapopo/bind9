@@ -1,0 +1,41 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+
+acl usuarios { 192.168.17.0/24; };
+
+
+view usuarios {
+  match-clients { usuarios; };
+  allow-recursion { any; };
+
+
+  zone "dof6.com" IN {
+     type master;
+     file "/etc/bind/db.dof6";
+     allow-update { none; };
+  };
+
+
+
+  zone "movistarplus.es" IN {
+     type master;
+     file "/etc/bind/db.movistarplus";
+     allow-update { none; };
+  };
+
+
+  zone "vod.cdn.telefonica.com" IN {
+     type master;
+     file "/etc/bind/db.vod.cdn.telefonica";
+     allow-update { none; };
+  };
+
+
+};
+
